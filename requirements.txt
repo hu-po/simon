@@ -1,0 +1,5 @@
+google-generativeai==0.7.2
+gradio==4.39.0
+gpiozero==2.0.1
+lgpio==0.2.2.0
+pygame==2.6.0
