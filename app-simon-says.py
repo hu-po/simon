@@ -127,7 +127,7 @@ async def blink_right_eye() -> str:
         tg.create_task(c['gpios'].async_set_lights(['blink'], ['eye.right']))
     return emoji
 
-async def ymca() -> str:
+async def do_the_ymca() -> str:
     emoji = "🕺"
     log.debug(f"{emoji} ymca")
     async with asyncio.TaskGroup() as tg:
@@ -155,6 +155,7 @@ TOOLS = {
     "head_turn_right": head_turn_right,
     "blink_left_eye": blink_left_eye,
     "blink_right_eye": blink_right_eye,
+    "do_the_ymca": do_the_ymca,
 }
 
 async def simon_says_from_image(image_path: str) -> str:
