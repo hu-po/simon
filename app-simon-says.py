@@ -247,7 +247,7 @@ with gr.Blocks(theme=c['theme']) as demo:
                     textbox = gr.Textbox(show_label=False, placeholder="hola! hello! bonjour!")
             with gr.Row():
                 gr.Image(
-                    value=os.path.join(os.path.abspath(os.path.dirname(__file__)), "docs", "thumbnail.png"),
+                    value=os.path.join(os.path.abspath(os.path.dirname(__file__)), "docs", "assets", "thumbnail.png"),
                     sources=None,
                     image_mode='RGB',
                     type='filepath',
