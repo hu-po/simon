@@ -127,6 +127,17 @@ async def blink_right_eye() -> str:
         tg.create_task(c['gpios'].async_set_lights(['blink'], ['eye.right']))
     return emoji
 
+async def ymca() -> str:
+    emoji = "🕺"
+    log.debug(f"{emoji} ymca")
+    async with asyncio.TaskGroup() as tg:
+        tg.create_task(c['audio'].async_play_audio('ymca', multilingual=True))
+        tg.create_task(c['gpios'].async_move_servos(
+            [[-30, 40, -30, -30], [30, -40, -40, 30]],
+            ['arm.left', 'arm.right'],
+        ))
+    return emoji
+
 # ---- TOOLS 🛠️ ----
 
 TOOLS = {
