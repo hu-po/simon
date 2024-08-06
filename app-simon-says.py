@@ -135,6 +135,7 @@ async def do_the_ymca() -> str:
         tg.create_task(c['gpios'].async_move_servos(
             [[-30, 40, -30, -30], [30, -40, -40, 30]],
             ['arm.left', 'arm.right'],
+            5,
         ))
     return emoji
 
