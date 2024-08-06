@@ -91,7 +91,7 @@ async def shake_head() -> str:
     log.debug(f"{emoji} shake_head")
     async with asyncio.TaskGroup() as tg:
         tg.create_task(c['audio'].async_play_audio('shake_head', multilingual=True))
-        tg.create_task(c['gpios'].async_move_servos([-30, 30, -30, 30, 0], 'head.yaw', 4))
+        tg.create_task(c['gpios'].async_move_servos([-30, 30, -30, 30, 0, -30, 30], 'head.yaw', 6))
         tg.create_task(c['gpios'].async_set_lights([['red', 'blink', 'blue', 'blink'], ['blink', 'red', 'blink', 'blue']], ['eye.left', 'eye.right'], 3))
     return emoji
 
@@ -135,7 +135,7 @@ async def do_the_ymca() -> str:
         tg.create_task(c['gpios'].async_move_servos(
             [[-30, 40, 40, -30], [30, -40, 30, 30]],
             ['arm.left', 'arm.right'],
-            5,
+            6,
         ))
     return emoji
 
