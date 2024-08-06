@@ -133,7 +133,7 @@ async def do_the_ymca() -> str:
     async with asyncio.TaskGroup() as tg:
         tg.create_task(c['audio'].async_play_audio('ymca', multilingual=True))
         tg.create_task(c['gpios'].async_move_servos(
-            [[-30, 40, -30, -30], [30, -40, -40, 30]],
+            [[-30, 40, 40, -30], [30, -40, 30, 30]],
             ['arm.left', 'arm.right'],
             5,
         ))
