@@ -139,6 +139,31 @@ async def do_the_ymca() -> str:
         ))
     return emoji
 
+async def wave_right_arm() -> str:
+    emoji = "👋"
+    log.debug(f"{emoji} wave_right_arm")
+    async with asyncio.TaskGroup() as tg:
+        # tg.create_task(c['audio'].async_play_audio('wave_right_arm', multilingual=True))
+        tg.create_task(c['gpios'].async_move_servos([[40, 40, 40, 40, 40], [20, 40, 20, 40, 20]], ['arm.left', 'arm.right'], 5))
+    return emoji
+
+async def salute() -> str:
+    emoji = "🫡"
+    log.debug(f"{emoji} salute")
+    async with asyncio.TaskGroup() as tg:
+        # tg.create_task(c['audio'].async_play_audio('salute', multilingual=True))
+        tg.create_task(c['gpios'].async_move_servos([[-30], [40]], ['arm.left', 'arm.right']))
+    return emoji
+
+async def nod_yes() -> str:
+    emoji = "😌"
+    log.debug(f"{emoji} nod_yes")
+    async with asyncio.TaskGroup() as tg:
+        # tg.create_task(c['audio'].async_play_audio('nod_yes', multilingual=True))
+        tg.create_task(c['gpios'].async_move_servos([0, -10, 0, 10, 0], 'head.yaw', 4))
+    return emoji
+
+
 # ---- TOOLS 🛠️ ----
 
 TOOLS = {
@@ -157,6 +182,9 @@ TOOLS = {
     "blink_left_eye": blink_left_eye,
     "blink_right_eye": blink_right_eye,
     "do_the_ymca": do_the_ymca,
+    "wave_right_arm": wave_right_arm,
+    "salute": salute,
+    "nod_yes": nod_yes,
 }
 
 async def simon_says_from_image(image_path: str) -> str:
