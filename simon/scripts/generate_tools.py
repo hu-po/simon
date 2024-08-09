@@ -40,6 +40,16 @@ Generate a unique function each time, different from the ones already shown.
 {generated_functions}
 Follow the existing format and naming conventions.
 Be creative about the emoji and function name, but make it specific.
+Here are the available gpios on the robot:
+```python
+c['gpios'] = GPIO([
+    ServoConfig(name="head.yaw", pwm="pwm1.a", pin=13, min_angle=-30, max_angle=30), # negative to the right
+    ServoConfig(name="arm.left", pwm="pwm0.a", pin=12, min_angle=-45, max_angle=60), # negative up
+    ServoConfig(name="arm.right", pwm="pwm1.b", pin=19, min_angle=-60, max_angle=45), # positive up
+    LEDConfig(name="eye.left", r_pin=23, g_pin=24, b_pin=25),
+    LEDConfig(name="eye.right", r_pin=10, g_pin=9, b_pin=11),
+])
+```
 Only output the function, no explanations."""
 
     response = model.generate_content(prompt, generation_config=genai.GenerationConfig(temperature=args.temperature))
