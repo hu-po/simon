@@ -16,7 +16,7 @@ log.setLevel(logging.INFO)
 @dataclass(kw_only=True)
 class GeminiConfig(BaseConfig):
     name: str
-    default_model: str = "models/gemini-1.5-flash-latest"
+    default_model: str = "models/gemini-1.5-pro-latest"
     default_audio_prompt: str = "transcribe this audio, it may be in english, espanol, or francais. provide the translation in english."
     default_image_prompt: str = "describe this image in a short sentence. focus on what the people are doing."
     default_video_prompt: str = "describe this video in a short sentence. focus on what the people are doing."

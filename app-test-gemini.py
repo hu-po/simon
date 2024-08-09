@@ -108,7 +108,7 @@ with gr.Blocks(theme=c['theme']) as demo:
             model_dropdown = gr.Dropdown(
                 label="model",
                 choices=["models/gemini-1.5-flash-latest", "models/gemini-1.5-pro-latest"],
-                value="models/gemini-1.5-flash-latest",
+                value="models/gemini-1.5-pro-latest",
             )
             model_info_text = gr.Textbox(label="model info")
             model_dropdown.change(c['gemini'].change_model, inputs=[model_dropdown], outputs=[model_info_text])
